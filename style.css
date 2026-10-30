@@ -1,0 +1,468 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Admin layout */
+body.admin {
+    align-items: flex-start;
+    padding-top: 70px;
+}
+
+body.admin .container {
+    width: 100%;
+    max-width: 800px;
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #2d2d5f;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topbar-icon {
+    font-size: 22px;
+}
+
+.topbar-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.topbar .logout-btn {
+    position: static;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.topbar .logout-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-danger:hover {
+    background: #c0392b;
+}
+
+.btn-sm {
+    padding: 4px 10px;
+    font-size: 12px;
+}
+
+.btn-view {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-view:hover {
+    background: #218838;
+}
+
+.btn-download {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-download:hover {
+    background: #0056b3;
+}
+
+.container {
+    width: 100%;
+    max-width: 520px;
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 32px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px 32px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    width: 100%;
+    max-width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+}
+
+.form-group input[type="password"],
+.form-group input[type="text"] {
+    padding: 12px 14px;
+    border: 1px solid #d0d0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+
+.form-group input[type="password"]:focus,
+.form-group input[type="text"]:focus {
+    border-color: #764ba2;
+    box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.15);
+}
+
+.login-link {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+}
+
+.login-link a {
+    color: #764ba2;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #c3c9e6;
+    border-radius: 12px;
+    padding: 36px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f8f9ff;
+    text-align: center;
+}
+
+.file-label:hover {
+    border-color: #764ba2;
+    background: #f0f2ff;
+}
+
+.file-label.dragover {
+    border-color: #764ba2;
+    background: #ecebff;
+    transform: scale(1.01);
+}
+
+.file-label .icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+    opacity: 0.7;
+}
+
+.file-label .label-text {
+    font-size: 15px;
+    color: #555;
+    font-weight: 500;
+}
+
+.file-label .hint {
+    font-size: 13px;
+    color: #999;
+    margin-top: 4px;
+}
+
+#files {
+    display: none;
+}
+
+.file-name {
+    font-size: 13px;
+    color: #764ba2;
+    margin-top: 8px;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(118, 75, 162, 0.5);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.notification {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.4s ease;
+}
+
+.notification.hidden {
+    display: none;
+}
+
+.notification.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.notification.fail {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.notification.partial {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.login-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.logout-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.folder-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.folder-item {
+    border: 1px solid #e0e0e8;
+    border-radius: 10px;
+    padding: 16px 18px;
+    background: #fafaff;
+}
+
+.folder-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.folder-icon {
+    font-size: 22px;
+}
+
+.folder-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+    word-break: break-all;
+}
+
+.folder-meta {
+    font-size: 12px;
+    color: #999;
+    margin-left: auto;
+}
+
+.file-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.file-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #555;
+    padding: 4px 0;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.file-list li .file-name-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-list li .file-size {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.file-list li .btn-sm {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .file-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    .file-list li .file-name-text,
+    .file-list li .file-size {
+        width: 100%;
+        max-width: 100%;
+    }
+    .file-list li .btn-sm {
+        margin-right: 6px;
+        margin-bottom: 2px;
+    }
+}
